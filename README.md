@@ -1,6 +1,6 @@
-#react-leaning
+# react-leaning
 
-1. npm i
-2. npm start
+1.npm i
+2.npm start
 
 

@@ -1,0 +1,28 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "haibo",
+      "price": 100,
+      "title": "man clothes",
+      "onSale": false,
+      "discount": 40
+    },
+    {
+      "id": 2,
+      "name": "recat",
+      "price": 2000,
+      "title": "women clothes",
+      "onSale": true,
+      "discount": 60
+    },
+    {
+      "id": 3,
+      "name": "angular",
+      "price": 400,
+      "title": "women clothes cool",
+      "onSale": true,
+      "discount": 100
+    }
+  ]
+}

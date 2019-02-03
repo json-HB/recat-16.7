@@ -1,0 +1,9 @@
+{
+    "type": "success",
+    "data": {
+        "name": "@first",
+        "age|1-30": 20,
+        "id": "@id",
+        "article": "@sentence"
+    }
+}

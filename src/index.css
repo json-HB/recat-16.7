@@ -1,0 +1,146 @@
+@import "./bootstrap.css";
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.aside {
+  position: fixed;
+  width: 200px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #f5f2f2;
+  border: 1px solid #ccc;
+  box-shadow: -1px 2px 17px 5px #ddd;
+  padding: 10px;
+  transition: transform 0.3s linear 0s;
+  z-index: 10000;
+}
+.aside > span.right-slide {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 34px;
+  font-size: 28px;
+  font-weight: 600;
+  border: 2px solid #ddd;
+  cursor: pointer;
+}
+.aside > span.right-slide:hover {
+  outline: rgb(23, 199, 53);
+  box-shadow: 0 0 2px 2px;
+}
+
+.bgPosition {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1000000;
+}
+.bgPosition > ul {
+  list-style: none;
+  width: 200px;
+  background: rgb(50, 179, 89);
+  border: 1px solid #ccc;
+  padding-left: 0px;
+  display: none;
+  transition: all 0.3s linear 0s;
+  max-height: 211px;
+  overflow-y: auto;
+}
+.bgPosition > ul::-webkit-scrollbar {
+  background: rgb(52, 77, 223);
+  width: 3px;
+}
+
+.bgPosition > ul::-webkit-scrollbar-thumb {
+  background: rgb(214, 255, 34);
+  border-radius: 5px;
+}
+
+.bgPosition > ul::-webkit-scrollbar-thumb {
+  background: rgb(214, 156, 31);
+  border-radius: 5px;
+}
+
+.bgPosition > ul > li:not(last-child) {
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color: black;
+  transition: background 0.3s linear 0s;
+  border-bottom: 1px solid rgb(209, 113, 23);
+}
+.bgPosition > ul > li:hover {
+  background: #ddd;
+  cursor: pointer;
+}
+
+#app-alert {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
+}
+
+#app-alert .alert {
+  min-width: 300px;
+  border: 1px solid #ccc;
+  position: relative;
+  transform: translateY(-100%);
+  transition: all 0.3s linear 0s;
+  box-shadow: outset 0 2px 3px #ddd;
+}
+
+#app-alert .alert.show {
+  transform: translateY(0%);
+}
+
+#app-model {
+  position: fixed;
+  z-index: 999;
+  background: rgb(241, 240, 240, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  transition: all 0.3s ease-in 0s;
+  transform: scale(0);
+  opacity: 0;
+}
+.model-main {
+  min-width: 500px;
+}
+
+.main {
+  margin-right: 200px;
+  transition: margin-right 0.3s linear 0s;
+}
+
+.select-main {
+  width: auto;
+  min-width: 200px;
+}
+
+.select-main .detail .list-group-item:not(.active):hover {
+  background: #2fd439a8;
+}
+
+.select-main .detail .list-group-item[disabled] {
+  color: #777;
+  cursor: not-allowed;
+  background-color: #eee;
+  pointer-events: none;
+}

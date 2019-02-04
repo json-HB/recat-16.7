@@ -30,6 +30,8 @@ import {
 import { observer, Provider, inject } from "mobx-react";
 import Signals from "signals";
 
+import Lazy from "././lazy";
+
 const Help = new Signals();
 
 const ProduceItem = types
@@ -320,6 +322,13 @@ function Aside() {
     setMenu(!menu);
     menu && (document.querySelector(".bgPosition").style.display = "none");
   };
+
+  const lazyShow = () => {
+    Dialog.open().then(res => {
+      console.log(res);
+      res.props.complete.dispatch("1000");
+    });
+  };
   useEffect(() => {
     let dom = aside.current;
     let width = dom.offsetWidth;
@@ -344,12 +353,33 @@ function Aside() {
       <button className="btn btn-info btn-block" onClick={toggleMenu}>
         {menu ? "hide" : "show"} contextmenu
       </button>
+      <button className="btn btn-primary btn-block" onClick={lazyShow}>
+        lazyLoading
+      </button>
       <span onClick={slide} className="right-slide">
         {show ? ">" : "<"}
       </span>
     </div>
   );
 }
+
+let Dialog = {
+  open(props = {}) {
+    return new Promise(function(resolve, reject) {
+      require(["./lazy.jsx"], function({ default: componnet }) {
+        props = Object.assign({}, props, { complete: new Signals() });
+        props.complete.add(res => console.log(res));
+        let DialogCom = React.createElement(componnet, props);
+
+        // DialogCom.complete = new Signals();
+        ReactDOM.render(DialogCom, document.querySelector("#portal"), () => {
+          console.log("loading success!");
+        });
+        resolve(DialogCom);
+      });
+    });
+  }
+};
 
 const Model = {
   open(data) {
@@ -397,7 +427,8 @@ class App extends Component {
           <Logger />
           <ClientXY render={data => <Position data={data} />} />
           <Select
-            checked
+            // checked
+            disabledMethod={item => ["react", "rxjs"].includes(item)}
             data={[
               "react",
               "vue",
@@ -729,7 +760,7 @@ class ClientXY extends Component {
   }
 }
 
-function Select({ data, checked, count = 1 }) {
+function Select({ data, checked, count = 1, disabledMethod }) {
   const selectDetail = useRef();
   let selectVal = useRef();
   let [active, setActive] = useState(null);
@@ -810,12 +841,13 @@ function Select({ data, checked, count = 1 }) {
       <div className="detail" ref={selectDetail}>
         <div className="list-group">
           {data.map((item, i) => {
+            let disabled = disabledMethod && disabledMethod(item);
             return (
               <div
                 onClick={ev => selectItem(ev, item)}
                 className={`list-group-item list-group-item-success text-center ${
                   i === active ? "active" : ""
-                }`}
+                } ${disabled ? "disabled" : ""}`}
                 key={i}
               >
                 {item}

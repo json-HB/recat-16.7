@@ -138,9 +138,10 @@ body {
   background: #2fd439a8;
 }
 
-.select-main .detail .list-group-item[disabled] {
-  color: #777;
+.select-main .detail .list-group-item[disabled],
+.select-main .detail .list-group-item.disabled {
+  color: rgb(223, 123, 29);
   cursor: not-allowed;
-  background-color: #eee;
+  background-color: rgb(218, 23, 192);
   pointer-events: none;
 }

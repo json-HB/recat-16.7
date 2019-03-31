@@ -16,3 +16,7 @@ gulp.task("watch", function() {
 gulp.task("default", ["bootstrap"], function(cb) {
   console.log("done");
 });
+
+gulp.task('say', function() {
+  console.log('hello');
+})

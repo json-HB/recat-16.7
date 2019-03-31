@@ -52,6 +52,7 @@
   "scripts": {
     "start": "npm link gulp && npm run css && node scripts/start.js && gulp watch",
     "css": "gulp",
+    "common": "node scripts/start.js",
     "react-slick": "bin/react-slick.sh && node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",

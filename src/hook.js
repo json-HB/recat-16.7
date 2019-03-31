@@ -69,7 +69,7 @@ function todos(state, action) {
       return action.payload;
     case "text":
       return state.map(item => {
-        if (item.id == action.id) {
+        if (item.id === action.id) {
           return {
             ...item,
             value: action.text

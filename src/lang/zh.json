@@ -1,0 +1,7 @@
+{
+  "name": "海波",
+  "list": {
+    "apple": "苹果 {{count}} {{date:YYYY-MM-DD}}",
+    "android": "安卓"
+  }
+}

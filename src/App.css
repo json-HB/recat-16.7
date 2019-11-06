@@ -40,3 +40,20 @@
   line-height: 28px;
   text-align: center;
 }
+
+.model {
+  position: absolute;
+  width: 300px;
+  min-height: 400px;
+  border: 1px solid #ddd;
+  background: #ddd;
+  transform: scale(0);
+  transition-duration: 0.5s;
+  transition-delay: 0s;
+  transition-timing-function: ease-in;
+  transition-property: transform;
+}
+
+.model.show {
+  transform: scale(1);
+}

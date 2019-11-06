@@ -15,8 +15,9 @@ gulp.task("watch", function() {
 
 gulp.task("default", ["bootstrap"], function(cb) {
   console.log("done");
+  cb();
 });
 
-gulp.task('say', function() {
-  console.log('hello');
-})
+gulp.task("say", function() {
+  console.log("hello");
+});

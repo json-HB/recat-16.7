@@ -1,0 +1,7 @@
+{
+  "name": "jason",
+  "list": {
+    "apple": "Apple {{count}}",
+    "android": "Android %%text:uppercase:reverse%%"
+  }
+}

@@ -30,6 +30,7 @@
     "mobx": "^5.9.0",
     "mobx-react": "^5.4.3",
     "mobx-state-tree": "^3.10.2",
+    "moment": "^2.24.0",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
@@ -50,7 +51,7 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start": "npm link gulp && npm run css && node scripts/start.js && gulp watch",
+    "start": "node scripts/start.js",
     "css": "gulp",
     "common": "node scripts/start.js",
     "react-slick": "bin/react-slick.sh && node scripts/start.js",
@@ -64,6 +65,7 @@
     "babel-plugin-syntax-class-properties": "^6.13.0",
     "babel-plugin-transform-decorators": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "md5": "^2.2.1",
     "mockup-server": "^0.8.1",
     "react-spring": "^5.9.2",
     "signals": "^1.0.0",

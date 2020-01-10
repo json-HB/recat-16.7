@@ -58,7 +58,6 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "mock": "./node_modules/.bin/mockup-server -p 3008",
-    "poststart": "npm run json-server",
     "json-server": "json-server -w db.json -d 200 -p 3008 & echo 'success'"
   },
   "devDependencies": {

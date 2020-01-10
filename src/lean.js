@@ -5,6 +5,7 @@ import React, {
   Suspense,
   lazy,
   createRef,
+  useRef,
   useReducer,
   createContext,
   useEffect,
@@ -62,7 +63,7 @@ function App() {
       </context.Provider>
       <Usereduce />
       <CallBack count1={count} />
-      <Counter />
+      {/* <Counter /> */}
       <ChildrenNode>
         <A name="a" />
         <A name="b" />
@@ -71,14 +72,50 @@ function App() {
         <p>child</p>
       </B>
       {/* <Login /> */}
+      <CountDown1 />
     </div>
   );
 }
 
-function C1({count}) {
-  return <div>
-    {count}
-  </div>
+function CountDown1() {
+  const [count, setCount] = useState(60);
+  const [start, setStart] = useState(false);
+  useInterval(
+    () => {
+      setCount(count - 1);
+    },
+    start ? 1000 : null
+  );
+
+  useEffect(() => {
+    if (count <= 55) {
+      setCount(60);
+    }
+  });
+
+  return (
+    <div>
+      <button onClick={() => setStart(true)}>down</button>
+      <button onClick={() => setCount(60)}>reset</button>
+      <p>{count}</p>
+    </div>
+  );
+}
+
+function useInterval(cb, time) {
+  const ref = useRef(null);
+  useEffect(() => {
+    ref.current = cb;
+  });
+
+  useEffect(() => {
+    if (time) {
+      const i = setInterval(() => {
+        ref.current();
+      }, time);
+      return () => clearInterval(i);
+    }
+  }, [time]);
 }
 
 var formcreate = WrapComponent =>

@@ -70,10 +70,7 @@ function todos(state, action) {
     case "text":
       return state.map(item => {
         if (item.id === action.id) {
-          return {
-            ...item,
-            value: action.text
-          };
+          return Object.assin(item, { value: action.text });
         }
         return item;
       });
@@ -285,10 +282,12 @@ function decorator(Wrap) {
     }
     render() {
       let Dom = super.render();
-      return React.cloneElement(Dom, {
-        ...this.props,
-        className: "text-info"
-      });
+      return React.cloneElement(
+        Dom,
+        Object.assign(this.props, {
+          className: "text-info"
+        })
+      );
     }
   };
 }
